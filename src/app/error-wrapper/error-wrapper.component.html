@@ -1,8 +1,6 @@
-<div>
-  <ng-container *ngIf="!isError else errorTemplate">
-    <ng-content></ng-content>
-  </ng-container>
-</div>
+<ng-container *ngIf="!isError else errorTemplate">
+  <ng-content></ng-content>
+</ng-container>
 
 <ng-template #errorTemplate>
   <p>ERROR!</p>
