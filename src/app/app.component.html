@@ -1,29 +1,21 @@
-<ng-container *ngrxLet="data1$ as data; let e = $error; let c = $complete, suspenseTpl: loadingTemplate">
-  <ng-container *ngIf="!e else errorTemplate">
-    <app-comp1 [data]="data" *ngIf="c"></app-comp1>
-  </ng-container>
-</ng-container>
+<app-card>
+  <app-error-wrapper *ngrxLet="data1$ as data; let e = $error; suspenseTpl: loadingTemplate" [isError]="e">
+    <app-comp1 [data]="data"></app-comp1>
+  </app-error-wrapper>
+</app-card>
 
-<hr>
+<app-card>
+  <app-error-wrapper *ngrxLet="data2$ as data; let e = $error; suspenseTpl: loadingTemplate" [isError]="e">
+    <app-comp2 [data]="data"></app-comp2>
+  </app-error-wrapper>
+</app-card>
 
-<ng-container *ngrxLet="data2$ as data; let e = $error; let c = $complete, suspenseTpl: loadingTemplate">
-  <ng-container *ngIf="!e else errorTemplate">
-    <app-comp2 [data]="data" *ngIf="c"></app-comp2>
-  </ng-container>
-</ng-container>
-
-<hr>
-
-<ng-container *ngrxLet="data3$ as data; let e = $error; let c = $complete, suspenseTpl: loadingTemplate">
-  <ng-container *ngIf="!e else errorTemplate">
-    <app-comp3 [data]="data" *ngIf="c"></app-comp3>
-  </ng-container>
-</ng-container>
-
-<ng-template #errorTemplate>
-  <p>ERROR!</p>
-</ng-template>
+<app-card>
+  <app-error-wrapper *ngrxLet="data3$ as data; let e = $error; suspenseTpl: loadingTemplate" [isError]="e">
+    <app-comp3 [data]="data"></app-comp3>
+  </app-error-wrapper>
+</app-card>
 
 <ng-template #loadingTemplate>
-  <p>LOADING...</p>
+  <div>LOADING...</div>
 </ng-template>

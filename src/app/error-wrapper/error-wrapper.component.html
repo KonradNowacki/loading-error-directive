@@ -1,0 +1,11 @@
+<div>
+  <ng-container *ngIf="!isError else errorTemplate">
+    <ng-content></ng-content>
+  </ng-container>
+</div>
+
+<ng-template #errorTemplate>
+  <p>ERROR!</p>
+</ng-template>
+
+
